@@ -1,0 +1,91 @@
+/* From Uiverse.io by Praashoo7 */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 40%;
+  margin-top: 120PX;
+  width: 290px;
+  background-color: white;
+  padding: 1.5em; /* Decreased padding for a smaller card */
+  border-radius: 20px; /* Adjusted border-radius for a smaller card */
+  transition: .4s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+}
+
+.form:hover {
+  transform: translateX(-0.5em) translateY(-0.5em);
+  border: 1px solid #171717;
+  box-shadow: 10px 10px 0px #666666;
+}
+
+.heading {
+  color: black;
+  padding-bottom: 1.5em; /* Reduced padding-bottom */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em; /* Reduced font size */
+}
+
+.input {
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  background-color: whitesmoke;
+  width: 270px;
+  outline: none;
+  padding: 0.7em; /* Adjusted padding for better spacing */
+  margin-bottom: 15px; /* Added margin-bottom to create space between inputs */
+  transition: .4s ease-in-out;
+}
+
+.input:hover {
+  box-shadow: 6px 6px 0px #969696,
+             -3px -3px 10px #ffffff;
+}
+
+.input:focus {
+  background: #ffffff;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+}
+
+.btn {
+  margin-top: 1.5em; /* Reduced margin-top */
+  align-self: center;
+  padding: 0.5em; /* Reduced padding */
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 8px; /* Adjusted border-radius */
+  border: none;
+  color: black;
+  transition: .4s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+}
+
+.btn:hover {
+  box-shadow: 6px 6px 0px #969696,
+             -3px -3px 10px #ffffff;
+  transform: translateX(-0.5em) translateY(-0.5em);
+}
+
+.btn:active {
+  transition: .2s;
+  transform: translateX(0em) translateY(0em);
+  box-shadow: none;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.signup-button {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}

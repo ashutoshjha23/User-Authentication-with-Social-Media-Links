@@ -1,0 +1,73 @@
+
+.details-container{
+    position: relative;
+    max-width: 500px;
+    margin-left: 490px;
+    margin-top: 140px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgb(2, 14, 255);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.details-form {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+.form-group input {
+    width: 95%;
+    padding: .8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #000000;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    display: relative;
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #5c9ee5;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+button:hover {
+    background-color: #0e1f31;
+}
+
+button:focus {
+    outline: none;
+}
+
+.go-home-button1 {
+    background-color: #03ff1c;
+    color: #fff;
+}
+
+.go-home-button1:hover {
+    background-color: #0e1f31;
+}

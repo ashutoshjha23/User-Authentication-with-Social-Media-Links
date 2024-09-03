@@ -1,0 +1,64 @@
+body{
+  background-image: linear-gradient(to right, rgb(0, 0, 0) , rgb(143, 143, 139));
+
+
+}
+.user-container {
+   width: 600px;
+   margin-top: 200px;
+   margin-left: 460px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgb(5, 60, 210);
+  }
+  
+  .user-container h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    margin-top: 10px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+  }
+  
+  .social-links-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-links-list li {
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+  }
+  
+  .social-links-list a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  
+  .social-links-list a:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .go-home-button {
+    margin-top: 20px;
+    margin-left: 150px;
+    width: 50%;
+    padding: 10px 20px;
+    background-color: #00ef50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .go-home-button:hover {
+    background-color: #152434;
+  }
+  
