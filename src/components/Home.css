@@ -19,5 +19,21 @@
   p {
     font-size: 1.2rem;
   }
-
+  .logout-button {
+    position: fixed;
+    top: 12px;
+    width: 6%;
+    right: 20px;
+    padding: 15px 15px;
+    background-color: #f44336; 
+    color: white;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .logout-button:hover {
+    background-color: #d32f2f; 
+  }
   

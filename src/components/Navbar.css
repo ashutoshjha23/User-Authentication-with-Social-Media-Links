@@ -2,8 +2,8 @@
 .navbar {
   position: fixed;
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    margin-bottom: 620px;
+    padding: 15px;
+    margin-bottom: 660px;
     border-radius: 10px;
     width: 30%;
     margin-left: 0px;
@@ -19,6 +19,7 @@
   }
   
   .navbar li {
+    text-align: center;
     display: inline;
   }
   
