@@ -33,7 +33,6 @@ const Details = () => {
     const handleGoHome = () => {
     navigate('/home'); 
     };
-
     return (
         <div className="details-container">
             <form className="details-form" onSubmit={handleSubmit}>

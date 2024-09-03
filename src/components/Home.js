@@ -4,7 +4,7 @@ import useVantaWaves from '../hooks/useVantaWaves';
 import './Home.css';
 
 const Home = () => {
-  const vantaRef = useVantaWaves(); // Use the custom hook
+  const vantaRef = useVantaWaves();
 
   return (
     <div ref={vantaRef} className="vanta-background">

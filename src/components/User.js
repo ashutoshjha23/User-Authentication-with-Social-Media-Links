@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import './User.css'; // Ensure you have this CSS file
+import { useNavigate } from 'react-router-dom'; 
+import './User.css'; 
 
 const User = () => {
   const [details, setDetails] = useState(null);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
+        const token = localStorage.getItem('token'); 
         const response = await axios.get('http://localhost:8080/details', {
           headers: {
             Authorization: `Bearer ${token}`
