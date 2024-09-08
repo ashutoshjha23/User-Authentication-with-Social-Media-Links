@@ -61,6 +61,8 @@ button:focus {
 }
 
 .go-home-button1 {
+    margin-left: 130px;
+    width: 50%;
     background-color: #03ff1c;
     color: #fff;
 }

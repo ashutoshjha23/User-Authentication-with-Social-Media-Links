@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import './Signup.css';
 
 const Signup = () => {
@@ -17,7 +17,7 @@ const Signup = () => {
       });
 
       if (response.status === 201) {
-        setMessage('Signup successful!');
+        setMessage('Signup successful! Please check your email to verify your account.');
       }
     } catch (error) {
       console.error('Error submitting data:', error);

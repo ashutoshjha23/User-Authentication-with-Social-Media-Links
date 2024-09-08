@@ -30,11 +30,11 @@ const User = () => {
     navigate('/home'); 
   };
   return (
-    <div className="user-container">
+    <div className="user-container ">
       <h2>Your Social Media Links</h2>
       {error && <p className="error-message">{error}</p>}
       {details ? (
-        <ul className="social-links-list">
+        <ul className="social-links-list list-none p-1.5">
           <li>
             Linkedln: <a href={details.linkedln} target="_blank" rel="noopener noreferrer">{details.linkedln || 'Not provided'}</a>
           </li>
