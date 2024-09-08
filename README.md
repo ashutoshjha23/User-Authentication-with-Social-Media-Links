@@ -31,5 +31,4 @@ This project provides a login and signup system with the added feature of allowi
    cd your-repo
 
 
-Replace placeholders like `ashutoshjha23`, `login-signup-fetcg-page`, and `ashutoshjha2312@gmail.com` with your actual GitHub username, repository name, and email address.
 
