@@ -173,7 +173,7 @@ app.get('/details', authenticateToken, async (req, res) => {
     }
 });
 
-//user details route
+// Update user details route
 app.post('/details', authenticateToken, async (req, res) => {
     const { linkedln, github, instagram } = req.body;
     const userId = req.user._id;
@@ -196,7 +196,7 @@ app.post('/details', authenticateToken, async (req, res) => {
     }
 });
 
-// server startup
+// Server startup
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
