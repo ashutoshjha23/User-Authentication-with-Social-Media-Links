@@ -21,10 +21,10 @@
 
 .heading {
   color: black;
-  padding-bottom: 1.5em; /* Reduced padding-bottom */
+  padding-bottom: 1.5em; 
   text-align: center;
   font-weight: bold;
-  font-size: 1.5em; /* Reduced font size */
+  font-size: 1.5em; 
 }
 
 .input {
@@ -33,8 +33,8 @@
   background-color: whitesmoke;
   width: 270px;
   outline: none;
-  padding: 0.7em; /* Adjusted padding for better spacing */
-  margin-bottom: 15px; /* Added margin-bottom to create space between inputs */
+  padding: 0.7em; 
+  margin-bottom: 15px; 
   transition: .4s ease-in-out;
 }
 
@@ -49,12 +49,12 @@
 }
 
 .btn {
-  margin-top: 1.5em; /* Reduced margin-top */
+  margin-top: 1.5em; 
   align-self: center;
-  padding: 0.5em; /* Reduced padding */
+  padding: 0.5em;
   padding-left: 1em;
   padding-right: 1em;
-  border-radius: 8px; /* Adjusted border-radius */
+  border-radius: 8px; 
   border: none;
   color: black;
   transition: .4s ease-in-out;
@@ -88,4 +88,28 @@
   color: blue;
   text-decoration: none;
   font-weight: bold;
+}
+
+.forgot-password-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forgot-password-link p {
+  margin-bottom: 5px;
+  color: #333; 
+  font-size: 16px;
+}
+
+.forgot-password-button {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.forgot-password-button:hover {
+  color: #0056b3;
+  text-decoration: underline;
 }

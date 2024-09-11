@@ -57,6 +57,10 @@ const Login = () => {
         <p>Don't have an account?</p>
         <Link to="/signup" className="signup-button">Sign Up</Link>
       </div>
+      <div className="forgot-password-link">
+        <p>Forgot your password?</p>
+        <Link to="/forgot-password" className="forgot-password-button">Reset Password</Link>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-require('dotenv').config({ path: 'server/.env' });
+require('dotenv').config({path: 'server/.env' }); 
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,6 +18,11 @@ app.use(cors({
 
 // MongoDB connection
 const uri = process.env.MONGO_URI;
+if (!uri) {
+    console.error('MONGO_URI is not defined in .env file');
+    process.exit(1);
+}
+
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -37,8 +41,6 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', UserSchema, 'User');
-
-// Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -46,10 +48,8 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 });
-
-// Function to send verification email
 const sendVerificationEmail = (email, token) => {
-    const verificationUrl = `http://localhost:8080/verify-email?token=${token}`;
+    const verificationUrl = `http://localhost:3000/reset-password?token=${token}`;
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
@@ -68,7 +68,6 @@ const sendVerificationEmail = (email, token) => {
     });
 };
 
-// Authenticate JWT middleware
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -82,7 +81,6 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// Register route
 app.post('/register', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -111,11 +109,9 @@ app.post('/register', async (req, res) => {
 // Email verification route
 app.get('/verify-email', async (req, res) => {
     const { token } = req.query;
-    console.log('Verification token:', token);
 
     try {
         const user = await User.findOne({ verificationToken: token });
-        console.log('User found:', user);
 
         if (!user) {
             return res.status(400).json({ error: 'Invalid or expired verification token' });
@@ -125,7 +121,6 @@ app.get('/verify-email', async (req, res) => {
         user.verificationToken = undefined;
         await user.save();
 
-        console.log('User updated:', user);
         res.send('Email verified successfully! You can now log in.');
     } catch (error) {
         console.error('Error verifying email:', error);
@@ -159,6 +154,63 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// Forgot password route
+app.post('/forgot-password', async (req, res) => {
+    const { email } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const resetToken = crypto.randomBytes(32).toString('hex');
+        user.verificationToken = resetToken;
+        await user.save();
+
+        const resetUrl = `http://localhost:3000/reset-password?token=${resetToken}`;
+
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: 'Password Reset Request',
+            html: `<p>Click the link below to reset your password:</p>
+                   <a href="${resetUrl}">Reset Password</a>`
+        };
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.error('Error sending password reset email:', error);
+                return res.status(500).json({ error: 'Error sending reset email' });
+            }
+            res.status(200).json({ message: 'Password reset email sent' });
+        });
+    } catch (error) {
+        console.error('Error handling forgot password request:', error);
+        res.status(500).json({ error: 'Error handling forgot password request' });
+    }
+});
+
+// Reset password route
+app.post('/reset-password', async (req, res) => {
+    const { token, newPassword } = req.body;
+    try {
+        const user = await User.findOne({ verificationToken: token });
+        if (!user) {
+            return res.status(400).json({ error: 'Invalid or expired token' });
+        }
+
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
+        user.password = hashedPassword;
+        user.verificationToken = undefined;
+        await user.save();
+        res.status(200).json({ message: 'Password reset successfully' });
+    } catch (error) {
+        console.error('Error resetting password:', error);
+        res.status(500).json({ error: 'Error resetting password' });
+    }
+});
+
 // Get user details route
 app.get('/details', authenticateToken, async (req, res) => {
     try {
@@ -177,7 +229,6 @@ app.get('/details', authenticateToken, async (req, res) => {
 app.post('/details', authenticateToken, async (req, res) => {
     const { linkedln, github, instagram } = req.body;
     const userId = req.user._id;
-
     try {
         const user = await User.findById(userId);
         if (!user) {
